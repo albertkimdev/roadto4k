@@ -1,3 +1,4 @@
+require('react-hot-loader/patch');
 const path = require('path');
 const webpack = require('webpack');
 require("babel-core/register");
@@ -6,8 +7,8 @@ require("babel-polyfill");
 module.exports = {
   context: __dirname,
   entry: [
-    'babel-polyfill',
     'react-hot-loader/patch',
+    'babel-polyfill',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.js'

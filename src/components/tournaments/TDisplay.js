@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import TDisplayComponent from './TDisplayComponent'
 
 import { getTournamentsList, checkTournament } from './actions'
+import { getMatchesFromTournaments } from '../stats/actions'
 
 const mapStateToProps = (props) => ({
   tournaments: props.tournaments
@@ -11,7 +12,8 @@ const mapStateToProps = (props) => ({
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     getTournamentsList,
-    checkTournament
+    checkTournament,
+    getMatchesFromTournaments
   }, dispatch)
 }
 

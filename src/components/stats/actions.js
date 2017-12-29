@@ -14,6 +14,7 @@ import {
 let url = 'http://localhost:3005/games/gamesbytournaments/'
 
 export const getMatchesFromTournaments = (ids) => async (dispatch) => {
+  console.log(ids)
   dispatch({ type: STATS_FETCH_START })
 
   const games = await axios.post(url, ids).catch(e => {

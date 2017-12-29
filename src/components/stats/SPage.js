@@ -32,35 +32,44 @@ const BoxesContainer = styled.div`
 
 class SPage extends Component {
 
-  updateMatches({ stats }) {
+  updateMatches(ids) {
     // takes props as argument
     let urlArr = []
-    for (let stat in stats) {
-      if (stats[stat].checked) urlArr.push(stat)
+    for (let id in ids) {
+      if (ids[id].checked) urlArr.push(id)
     }
     this.props.getMatchesFromTournaments(urlArr)
   }
   //
   componentDidMount() {
-    this.updateMatches(this.props)
+    this.updateMatches(this.props.checkedTournaments)
   }
+
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   if (nextProps.checkedTournaments !== this.props.checkedTournaments) {
+  //     this.updateMatches(nextProps.checkedTournaments)
+  //     console.log('false')
+  //     return true
+  //   }
+  //   console.log('true')
+  //   return false
+  // }
 
   printStatBoxes(data) {
     return (
       <BoxesContainer>
-       {data.map((d, i) => ( <SBox data={d} /> ))}
+       {data.map((d, i) => ( <SBox key={i} data={d} /> ))}
       </BoxesContainer>
     )
   }
   //
   render() {
     const { loading, loadingError, data } = this.props.stats
-
     return (
       <Container>
         <h1>Stats Page</h1>
         {
-          loading && data.length > 0 ? <div>loading</div>
+          loading && data.length === 0 ? <div>loading</div>
             : this.printStatBoxes(data)
         }
       </Container>
@@ -69,7 +78,8 @@ class SPage extends Component {
 }
 
 const mapStateToProps = (props) => ({
-  stats: props.stats
+  stats: props.stats,
+  checkedTournaments: props.tournaments.checkedTournaments
 })
 
 const mapDispatchToProps = (dispatch) => {

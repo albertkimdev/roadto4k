@@ -16,13 +16,28 @@ class TDisplayComponent extends Component {
     this.props.getTournamentsList()
   }
 
+  updateMatches(ids, tid, checked) {
+    // takes props as argument
+    let urlArr = []
+    for (let id in ids) {
+      if (ids[id].checked) urlArr.push(id)
+    }
+    if (checked) urlArr.push(tid)
+    this.props.getMatchesFromTournaments(urlArr)
+  }
+
   printCheckbox(t, i, checkedTournaments) {
     const { tid, name } = t
     const checked = this.getChecked(checkedTournaments, tid)
+    //console.log(this.props)
     return (
       <div key={i}>
         <input type="checkbox" id={tid}
-          onClick={(e) => this.props.checkTournament(tid, e.target.checked)}
+          onClick={(e) => {
+            this.props.checkTournament(tid, e.target.checked)
+            this.updateMatches(checkedTournaments, tid, e.target.checked)
+            //console.log(this.props)
+          }}
           checked={checked} />
         <label htmlFor={tid}>{name}</label>
       </div>

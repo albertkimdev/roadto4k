@@ -1,11 +1,8 @@
 import {
-  TOURNAMENT_CHECK, STATS_FETCH_START, STATS_FETCH_ERROR, STATS_FETCH_END
+  STATS_FETCH_START, STATS_FETCH_ERROR, STATS_FETCH_END
 } from '../constants'
 
 const initState = {
-  1007: {
-    checked: true
-  },
   loading: true,
   loadingError: false,
   data: []
@@ -13,14 +10,6 @@ const initState = {
 
 export default function(state = initState, action) {
   switch(action.type) {
-    case TOURNAMENT_CHECK:
-      const { id, checked } = action
-      return {
-        ...state,
-        [id]: {
-          checked
-        }
-      }
     case STATS_FETCH_START:
       return {
         ...state,
@@ -40,6 +29,8 @@ export default function(state = initState, action) {
         loadingError: false,
         data
       }
+    default:
+      return state
   }
   return state
 }

@@ -1,7 +1,6 @@
 export const sortPlayersIntoArray = (games) => {
 
   //add every player element into one big array
-
   let players = []
   for (let i = 0, n=games.length; i < n; i++) {
     for (let y = 0; y < games[i][0].players.length; y++) {
@@ -16,7 +15,7 @@ export const addPlayerStats = (players) => {
   // do calculations for each player by using reducer
   // to create a new object containing totals of all their stats
   let addedPlayerStatsArray = []
-  for (let player in players) {
+  for (const player in players) {
     if (!players.hasOwnProperty(player)) continue
 
     let obj = players[player]
@@ -57,13 +56,15 @@ export const addPlayerStats = (players) => {
         scaledherodamagepg: game.scaled_hero_damage,
         scaledherohealingpg: game.scaled_hero_healing,
         scaledtowerdamagepg: game.scaled_tower_damage,
-        xpmpg: game.xp_per_min
+        xpmpg: game.xp_per_min,
+        player: game.player
       }
     }
 
     let reducedObj = obj.reduce((a, b) => {
       let x = {
         account_id: a.account_id,
+        player: a.player,
         kills: a.kills + b.kills,
         deaths: a.deaths + b.deaths,
         assists: a.assists + b.assists,
@@ -79,7 +80,7 @@ export const addPlayerStats = (players) => {
         hero_healing: a.hero_healing + b.hero_healing,
         scaled_hero_damage: a.scaled_hero_damage + b.scaled_hero_damage,
         scaled_hero_healing: a.scaled_hero_healing + b.scaled_hero_healing,
-        scaled_tower_damage: a.scaled_tower_damage + b.scaled_tower_damage
+        scaled_tower_damage: a.scaled_tower_damage + b.scaled_tower_damage,
       }
       return x
     })

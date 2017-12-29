@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import TFiltersComponent from './TFiltersComponent'
 
 const mapStateToProps = (props) => ({
-  //containerstate: props.state
+// containerstate: props.state
 })
 
 const mapDispatchToProps = (dispatch) => {
