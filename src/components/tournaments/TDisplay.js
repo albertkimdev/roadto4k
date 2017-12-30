@@ -6,7 +6,9 @@ import { getTournamentsList, checkTournament } from './actions'
 import { getMatchesFromTournaments } from '../stats/actions'
 
 const mapStateToProps = (props) => ({
-  tournaments: props.tournaments
+  tournaments: props.tournaments,
+  loading: props.tournaments.loading,
+  loadingError: props.tournaments.loadingError
 })
 
 const mapDispatchToProps = (dispatch) => {

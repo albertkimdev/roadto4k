@@ -7,6 +7,8 @@ export const STATS_FETCH_START = 'STATS_FETCH_START'
 export const STATS_FETCH_ERROR = 'STATS_FETCH_ERROR'
 export const STATS_FETCH_END = 'STATS_FETCH_END'
 
+export const STATS_FILTER_CHANGE = 'STATS_FILTER_CHANGE'
+
 export const stats = [
   'assists', 'deaths', 'denies',
   'gold', 'gold_per_min', 'gold_spent',

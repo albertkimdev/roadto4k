@@ -1,37 +1,51 @@
 import {
-  TOURNAMENT_FETCH_START, TOURNAMENT_FETCH_END, TOURNAMENT_FETCH_ERROR, TOURNAMENT_CHECK
+  TOURNAMENT_FETCH_START, TOURNAMENT_FETCH_END, TOURNAMENT_FETCH_ERROR, TOURNAMENT_CHECK,
 } from '../constants'
 
 const initState = {
+  tournaments: [],
   checkedTournaments: {
     1007: {
-      checked: true
-    }
-  }
+      checked: true,
+    },
+  },
+  loading: true,
+  loadingError: false,
 }
 
-export default function(state = initState, action) {
-  switch(action.type) {
+export default function (state = initState, action) {
+  switch (action.type) {
     case TOURNAMENT_FETCH_START:
-      return state
+      return {
+        ...state,
+        loading: true,
+      }
     case TOURNAMENT_FETCH_ERROR:
-      return state
+      return {
+        ...state,
+        loading: false,
+        loadingError: true
+      }
     case TOURNAMENT_FETCH_END:
       return {
         ...state,
-        tournaments: action.tournaments
+        loading: false,
+        loadingError: false,
+        tournaments: action.tournaments,
       }
-    case TOURNAMENT_CHECK:
+    case TOURNAMENT_CHECK: {
       const { id, checked } = action
       return {
         ...state,
         checkedTournaments: {
           ...state.checkedTournaments,
           [id]: {
-            checked
-          }
-        }
+            checked,
+          },
+        },
       }
+    }
+    default:
+      return state
   }
-  return state
 }

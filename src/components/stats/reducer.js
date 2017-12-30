@@ -1,11 +1,12 @@
 import {
-  STATS_FETCH_START, STATS_FETCH_ERROR, STATS_FETCH_END
+  STATS_FETCH_START, STATS_FETCH_ERROR, STATS_FETCH_END, STATS_FILTER_CHANGE
 } from '../constants'
 
 const initState = {
   loading: true,
   loadingError: false,
-  data: []
+  data: [],
+  filterOption: 'pg'
 }
 
 export default function(state = initState, action) {
@@ -28,6 +29,11 @@ export default function(state = initState, action) {
         loading: false,
         loadingError: false,
         data
+      }
+    case STATS_FILTER_CHANGE:
+      return {
+        ...state,
+        filterOption: action.option
       }
     default:
       return state

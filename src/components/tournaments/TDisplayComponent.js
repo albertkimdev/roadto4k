@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+import TNameBox from './TNameBox'
+
 const Container = styled.div`
   width: 70%;
   display: flex;
   background-color: orange;
-  @media (max-width:500px) {
+  @media (max-width:600px) {
     width: 90%;
   }
 `
+const TNameBoxContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`
 
 class TDisplayComponent extends Component {
-
   componentDidMount() {
     this.props.getTournamentsList()
   }
@@ -31,16 +38,15 @@ class TDisplayComponent extends Component {
     const checked = this.getChecked(checkedTournaments, tid)
     //console.log(this.props)
     return (
-      <div key={i}>
-        <input type="checkbox" id={tid}
-          onClick={(e) => {
-            this.props.checkTournament(tid, e.target.checked)
-            this.updateMatches(checkedTournaments, tid, e.target.checked)
-            //console.log(this.props)
-          }}
-          checked={checked} />
-        <label htmlFor={tid}>{name}</label>
-      </div>
+      <TNameBox
+        key={i}
+        tid={tid}
+        checkTournament={this.props.checkTournament.bind(this)}
+        checked={checked}
+        name={name}
+        updateMatches={this.updateMatches.bind(this)}
+        checkedTournaments={checkedTournaments}
+      />
     )
   }
 
@@ -51,20 +57,40 @@ class TDisplayComponent extends Component {
     return false
   }
 
-  printLoading() {
-    return <div>loading</div>
+  printLoadingOrContent(loading, loadingError, tournaments) {
+    if (loading) {
+      return <div>loading</div>
+    }
+    if (loadingError) {
+      return (
+        <div>
+          <p>Loading Error click button to try again</p>
+          <button
+            onClick={() => {
+              this.props.getTournamentsList()
+            }}
+          >
+            Refresh
+          </button>
+        </div>
+      )
+    }
+    const { checkedTournaments } = tournaments
+    return (
+      <TNameBoxContainer>
+        {tournaments.tournaments.map((t, i) => this.printCheckbox(t, i, checkedTournaments))}
+      </TNameBoxContainer>
+    )
   }
 
   render() {
-    const { tournaments } = this.props
-    const { checkedTournaments } = tournaments
+    const { tournaments, loading, loadingError } = this.props
+
     return (
       <Container>
-        {
-          tournaments.tournaments
-            ? tournaments.tournaments.map((t, i) => this.printCheckbox(t, i, checkedTournaments))
-            : this.printLoading()
-        }
+        {this.printLoadingOrContent(
+          loading, loadingError, tournaments
+        )}
       </Container>
     )
   }

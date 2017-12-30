@@ -8,6 +8,9 @@ const Container = styled.div`
   align-items: center;
   background-color: orange;
   margin: 10px;
+  @media (max-width:500px) {
+    width: 90%;
+  }
 `
 const Cont = styled.div`
   display: flex;
@@ -22,6 +25,8 @@ class SBox extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return this.props !== nextProps
   }
+
+
 
   render() {
     const data = Object.entries(this.props.data)

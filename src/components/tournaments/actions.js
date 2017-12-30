@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 import {
-  TOURNAMENT_FETCH_START, TOURNAMENT_FETCH_END, TOURNAMENT_FETCH_ERROR, TOURNAMENT_CHECK
+  TOURNAMENT_FETCH_START, TOURNAMENT_FETCH_END, TOURNAMENT_FETCH_ERROR, TOURNAMENT_CHECK,
+  STATS_FILTER_CHANGE
 } from '../constants'
 
 const url = 'http://localhost:3005/tournaments/all'
@@ -30,4 +31,11 @@ export const checkTournament = (id, checked) => (dispatch) => {
     id,
     checked
   })
+}
+
+export const selectStatsFilter = (option) => {
+  return {
+    type: STATS_FILTER_CHANGE,
+    option
+  }
 }

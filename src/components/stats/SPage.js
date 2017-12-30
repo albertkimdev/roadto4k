@@ -25,7 +25,7 @@ const BoxesContainer = styled.div`
   justify-content: center;
   width: 70%;
   background-color: pink;
-  @media (max-width:500px) {
+  @media (max-width:600px) {
     width: 90%;
   }
 `
@@ -45,16 +45,6 @@ class SPage extends Component {
     this.updateMatches(this.props.checkedTournaments)
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (nextProps.checkedTournaments !== this.props.checkedTournaments) {
-  //     this.updateMatches(nextProps.checkedTournaments)
-  //     console.log('false')
-  //     return true
-  //   }
-  //   console.log('true')
-  //   return false
-  // }
-
   printStatBoxes(data) {
     return (
       <BoxesContainer>
@@ -62,16 +52,43 @@ class SPage extends Component {
       </BoxesContainer>
     )
   }
+
+  printLoadingOrContent(loading, loadingError, data, filterOption) {
+    if (loading) {
+      return (
+        <div>Loading.....</div>
+      )
+    }
+    if (loadingError) {
+      return (
+        <div>
+          <p>Loading Error click button to try again</p>
+          <button
+            onClick={() => {
+              this.updateMatches(this.props.checkedTournaments)
+            }}
+          >
+            Refresh
+          </button>
+        </div>
+      )
+    }
+    if (filterOption === 'pg') {
+      data = data.slice(16, data.length)
+    } else if (filterOption === 'total') {
+      data = data.slice(0, 16)
+    }
+    return (
+      this.printStatBoxes(data)
+    )
+  }
   //
   render() {
-    const { loading, loadingError, data } = this.props.stats
+    const { loading, loadingError, data, filterOption } = this.props.stats
     return (
       <Container>
         <h1>Stats Page</h1>
-        {
-          loading && data.length === 0 ? <div>loading</div>
-            : this.printStatBoxes(data)
-        }
+        {this.printLoadingOrContent(loading, loadingError, data, filterOption)}
       </Container>
     )
   }
