@@ -38,60 +38,20 @@ class TDisplayComponent extends Component {
     return false
   }
 
-  updateMatches(ids, tid, checked) {
-    console.log(this.props)
-    let urlArr = []
-    //console.log(tid, checked)
-    const idKeys = Object.keys(ids)
-    //console.log(`urlArr = ${urlArr}`)
-
-    for (let i = 0, n = idKeys.length; i < n; i++) {
-      const index = idKeys[i]
-      console.log(index, tid)
-      if (index !== tid) {
-        console.log('swag')
-        if (ids[index].checked) {
-          urlArr.push(index)
-        }
-      }
-    }
-  //  console.log(`urlArr = ${urlArr}`)
-    if (checked) {
-      urlArr.push(tid)
-    }
-    console.log(`urlArr = ${urlArr}`)
-    this.props.getMatchesFromTournaments(urlArr)
-  }
-
   printCheckbox(t, i, checkedTournaments) {
     const { tid, name } = t
     const checked = this.getChecked(checkedTournaments, tid)
 
     return (
-      <TNameContainer>
-        <input
-          type="checkbox"
-          id={tid}
-          onChange={(e) => {
-            this.props.checkTournament(tid, e.target.checked)
-            this.updateMatches(this.props.checkedTournaments, tid, e.target.checked)
-          }}
-          checked={checked}
-        />
-        <label htmlFor={tid}>{name}</label>
-      </TNameContainer>
+      <TNameBox
+        key={i}
+        tid={tid}
+        checkTournament={this.props.checkTournament.bind(this)}
+        checked={checked}
+        name={name}
+        getMatchesFromTournaments={this.props.getMatchesFromTournaments.bind(this)}
+      />
     )
-    // return (
-    //   <TNameBox
-    //     key={i}
-    //     tid={tid}
-    //     checkTournament={this.props.checkTournament.bind(this)}
-    //     checked={checked}
-    //     name={name}
-    //     updateMatches={this.updateMatches.bind(this)}
-    //     checkedTournaments={checkedTournaments}
-    //   />
-    // )
   }
 
 
