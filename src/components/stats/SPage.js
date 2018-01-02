@@ -31,7 +31,6 @@ const BoxesContainer = styled.div`
 `
 
 class SPage extends Component {
-
   updateMatches(ids) {
     // takes props as argument
     let urlArr = []
@@ -82,9 +81,11 @@ class SPage extends Component {
       this.printStatBoxes(data)
     )
   }
-  //
+
   render() {
-    const { loading, loadingError, data, filterOption } = this.props.stats
+    const {
+      loading, loadingError, data, filterOption
+    } = this.props.stats
     return (
       <Container>
         <h1>Stats Page</h1>

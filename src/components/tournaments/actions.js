@@ -25,12 +25,12 @@ export const getTournamentsList = () => async (dispatch) => {
   }
 }
 
-export const checkTournament = (id, checked) => (dispatch) => {
-  dispatch({
-    type: TOURNAMENT_CHECK ,
+export const checkTournament = (id, checked) => {
+  return {
+    type: TOURNAMENT_CHECK,
     id,
     checked
-  })
+  }
 }
 
 export const selectStatsFilter = (option) => {

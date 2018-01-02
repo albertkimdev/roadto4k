@@ -18,6 +18,7 @@ const TNameBox = ({
       type="checkbox"
       id={tid}
       onClick={(e) => {
+        console.log(checkedTournaments)
         checkTournament(tid, e.target.checked)
         updateMatches(checkedTournaments, tid, e.target.checked)
       }}

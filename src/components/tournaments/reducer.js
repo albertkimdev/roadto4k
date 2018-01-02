@@ -40,7 +40,7 @@ export default function (state = initState, action) {
         checkedTournaments: {
           ...state.checkedTournaments,
           [id]: {
-            checked,
+            checked: checked,
           },
         },
       }

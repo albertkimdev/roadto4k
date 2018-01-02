@@ -18,5 +18,6 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "comma-dangle": [0],
     "quotes": 0,
+    "allowForLoopAfterthoughts": true,
   }
 }

@@ -13,10 +13,23 @@ import {
 
 let url = 'http://localhost:3005/games/gamesbytournaments/'
 
-export const getMatchesFromTournaments = (ids) => async (dispatch) => {
+export const getMatchesFromTournaments = (ids) => async (dispatch, getState) => {
+  const idzs = getState().tournaments.checkedTournaments
+  const idsEntries = Object.entries(idzs)
+
+  let idArr = []
+  for (let i = 0; i < idsEntries.length; i++) {
+    const id = idsEntries[i]
+    const checked = id[1].checked
+    if (checked) {
+      idArr.push(id[0])
+    }
+  }
+  console.log(idArr)
+
   dispatch({ type: STATS_FETCH_START })
 
-  const games = await axios.post(url, ids).catch(e => {
+  const games = await axios.post(url, idArr).catch(e => {
     dispatch({ type: STATS_FETCH_ERROR })
   })
 
