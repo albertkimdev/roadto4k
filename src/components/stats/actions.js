@@ -13,7 +13,11 @@ import {
 
 let url = 'http://localhost:3005/games/gamesbytournaments/'
 
-export const getMatchesFromTournaments = (ids) => async (dispatch, getState) => {
+export const getMatchesFromTournaments = () => async (dispatch, getState) => {
+  /**
+    Get tournament ids from state because updating via checkboxes aint working
+    
+  */
   const idzs = getState().tournaments.checkedTournaments
   const idsEntries = Object.entries(idzs)
 
@@ -25,7 +29,6 @@ export const getMatchesFromTournaments = (ids) => async (dispatch, getState) => 
       idArr.push(id[0])
     }
   }
-  console.log(idArr)
 
   dispatch({ type: STATS_FETCH_START })
 

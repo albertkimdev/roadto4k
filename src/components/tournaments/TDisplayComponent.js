@@ -6,7 +6,6 @@ import TNameBox from './TNameBox'
 const Container = styled.div`
   width: 70%;
   display: flex;
-  background-color: orange;
   @media (max-width:600px) {
     width: 90%;
   }
@@ -16,14 +15,6 @@ const TNameBoxContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-`
-const TNameContainer = styled.div`
-  background-color: grey;
-  margin: 5px;
-  padding: 5px;
-  @media (max-width:500px) {
-    width: 90%;
-  }
 `
 
 class TDisplayComponent extends Component {

@@ -14,7 +14,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: green;
 `
 // printStatBoxes
 const BoxesContainer = styled.div`
@@ -24,24 +23,14 @@ const BoxesContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 70%;
-  background-color: pink;
   @media (max-width:600px) {
     width: 90%;
   }
 `
 
 class SPage extends Component {
-  updateMatches(ids) {
-    // takes props as argument
-    let urlArr = []
-    for (let id in ids) {
-      if (ids[id].checked) urlArr.push(id)
-    }
-    this.props.getMatchesFromTournaments(urlArr)
-  }
-  //
   componentDidMount() {
-    this.updateMatches(this.props.checkedTournaments)
+    this.props.getMatchesFromTournaments()
   }
 
   printStatBoxes(data) {
@@ -88,7 +77,6 @@ class SPage extends Component {
     } = this.props.stats
     return (
       <Container>
-        <h1>Stats Page</h1>
         {this.printLoadingOrContent(loading, loadingError, data, filterOption)}
       </Container>
     )

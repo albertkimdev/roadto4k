@@ -9,9 +9,13 @@
     "dev": "webpack-dev-server"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "axios": "^0.17.1",
+    "css-loader": "^0.28.7",
     "lodash.groupby": "^4.6.0",
     "normalize.css": "^7.0.0",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -19,6 +23,7 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "semantic-ui-react": "^0.77.1",
+    "style-loader": "^0.19.1",
     "styled-components": "^2.3.2",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.1",

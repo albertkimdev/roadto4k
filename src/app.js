@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import 'animate.css'
 
 import StatisticsPage from './components/StatisticsPage'
 
