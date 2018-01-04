@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import TFilters from './TFilters'
 import TDisplay from './TDisplay'
-import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
@@ -13,9 +13,9 @@ class TPage extends Component {
   render() {
     return (
       <Container>
-        <h1>Tournament filters</h1>
-        <TFilters />
+        <h1>Select Tournaments</h1>
         <TDisplay />
+        <TFilters />
       </Container>
     )
   }

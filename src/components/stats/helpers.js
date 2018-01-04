@@ -86,9 +86,9 @@ export const addPlayerStats = (players) => {
     })
     const num = obj.length
     reducedObj.totalGames = num
-    reducedObj.killspg = Math.round((reducedObj.kills / num) * 100)/100
-    reducedObj.deniespg = Math.round((reducedObj.denies / num) * 100)/100
-    reducedObj.deathspg = Math.round((reducedObj.deaths/num)*100)/100
+    reducedObj.killspg = Math.round((reducedObj.kills / num) * 100) / 100
+    reducedObj.deniespg = Math.round((reducedObj.denies / num) * 100) / 100
+    reducedObj.deathspg = Math.round((reducedObj.deaths/num) * 100) / 100
     reducedObj.assistspg = Math.round((reducedObj.assists/num)*100)/100
     reducedObj.lasthitspg = Math.round((reducedObj.last_hits/num)*100)/100
     reducedObj.levelspg = Math.round((reducedObj.level/num) *100)/100
@@ -102,7 +102,6 @@ export const addPlayerStats = (players) => {
     reducedObj.scaledherodamagepg = Math.round((reducedObj.scaled_hero_damage/num)*100)/100
     reducedObj.scaledherohealingpg = Math.round((reducedObj.scaled_hero_healing/num)*100)/100
     reducedObj.scaledtowerdamagepg = Math.round((reducedObj.scaled_tower_damage/num)*100)/100
-
 
     const yy = Object.assign({}, reducedObj)
     addedPlayerStatsArray.push(yy)

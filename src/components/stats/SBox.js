@@ -7,11 +7,13 @@ import { statsDisplay } from '../constants'
 const Container = styled.div`
   display: flex;
   width: 45%;
+  max-width: 500px;
   flex-direction: column;
   align-items: center;
   background-color:	#F5F5F5;
   border: 1px solid black;
   margin: 10px;
+  padding-bottom: 5px;
   @media (max-width:500px) {
     width: 90%;
   }

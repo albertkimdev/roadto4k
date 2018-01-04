@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const TNameContainer = styled.div`
-  background-color: grey;
   margin: 5px;
-  padding: 5px;
   @media (max-width:500px) {
     width: 90%;
   }
@@ -13,7 +11,7 @@ const TNameContainer = styled.div`
 const TNameBox = ({
   tid, checkTournament, checked, name, getMatchesFromTournaments
 }) => (
-  <TNameContainer>
+  <TNameContainer className="pretty p-default">
     <input
       type="checkbox"
       id={tid}
@@ -23,7 +21,9 @@ const TNameBox = ({
       }}
       checked={checked}
     />
-    <label htmlFor={tid}>{name}</label>
+    <div className="state p-success">
+      <label htmlFor={tid}> {name}</label>
+    </div>
   </TNameContainer>
 )
 

@@ -15,6 +15,7 @@
     "lodash.groupby": "^4.6.0",
     "normalize.css": "^7.0.0",
     "numeral": "^2.0.6",
+    "pretty-checkbox": "^3.0.3",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

@@ -6,6 +6,9 @@ import TNameBox from './TNameBox'
 const Container = styled.div`
   width: 70%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
   @media (max-width:600px) {
     width: 90%;
   }

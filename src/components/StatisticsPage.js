@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import TPage from './tournaments/TPage'
 import SPage from './stats/SPage'
-import styled from 'styled-components'
+
+const Container = styled.div`
+  min-height: 100vh;
+`
 
 class StatisticsPage extends Component {
   render() {
     return (
-      <div>
+      <Container className="silverLake">
         <TPage />
         <SPage />
-      </div>
+      </Container>
     )
   }
 }

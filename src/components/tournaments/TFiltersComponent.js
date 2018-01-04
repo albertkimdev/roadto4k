@@ -5,7 +5,6 @@ const Container = styled.div`
   width: 70%;
   display: flex;
   padding: 15px 10px;
-  background-color: pink;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -20,6 +19,11 @@ const RadioGroup = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
+  div {
+    background-color: Whitesmoke;
+    padding: 5px;
+    border: 1px solid black;
+  }
 `
 
 class TFiltersComponent extends Component {
@@ -46,14 +50,14 @@ class TFiltersComponent extends Component {
               checked={this.state.selected === 'pg'}
               onChange={this.handleOptionChange.bind(this)}
             />
-            <label htmlFor="pg">Per Game</label>
+            <label htmlFor="pg"> Per Game</label>
           </div>
           <div>
             <input type="radio" id="total" name="filter" value='total'
               checked={this.state.selected === 'total'}
               onChange={this.handleOptionChange.bind(this)}
             />
-            <label htmlFor="total">Total Stats</label>
+            <label htmlFor="total"> Total Stats</label>
           </div>
         </RadioGroup>
       </form>

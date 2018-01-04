@@ -22,7 +22,7 @@ const BoxesContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  width: 80%;
   @media (max-width:600px) {
     width: 90%;
   }
@@ -53,7 +53,7 @@ class SPage extends Component {
           <p>Loading Error click button to try again</p>
           <button
             onClick={() => {
-              this.updateMatches(this.props.checkedTournaments)
+              this.props.getMatchesFromTournaments()
             }}
           >
             Refresh
@@ -61,13 +61,14 @@ class SPage extends Component {
         </div>
       )
     }
+    let thedata
     if (filterOption === 'pg') {
-      data = data.slice(16, data.length)
+      thedata = data.slice(16, data.length)
     } else if (filterOption === 'total') {
-      data = data.slice(0, 16)
+      thedata = data.slice(0, 16)
     }
     return (
-      this.printStatBoxes(data)
+      this.printStatBoxes(thedata)
     )
   }
 

@@ -19,7 +19,7 @@ const PValue = styled.p`
 `
 
 const SPlayerRow = ({ i, r, name }) => (
-  <Cont>
+  <Cont className="pulse">
     <p>{`${i+1}. ${r.player.name}`}</p>
     <PValue>{numeral(r[name]).format('0,000,000,000.0')}</PValue> {/* r[name] is like r.assists or r.deaths name is variable */}
   </Cont>

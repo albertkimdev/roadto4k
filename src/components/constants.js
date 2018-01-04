@@ -23,7 +23,7 @@ export const stats = [
   'killspg', 'lasthitspg',
   'levelspg', 'scaledherodamagepg',
   'scaledherohealingpg', 'scaledtowerdamagepg',
-  'towerdamagepg', 'xpperminpg'
+  'towerdamagepg', 'xpmpg'
 ]
 
 export const statsDisplay = {
@@ -58,5 +58,5 @@ export const statsDisplay = {
   scaledherohealingpg: 'Scaled Hero Healing Per Game',
   scaledtowerdamagepg: 'Scaled Tower Damage Per Game',
   towerdamagepg: 'Tower Damage Per Game',
-  xpperminpg: 'XP Per Min Per Game',
+  xpmpg: 'XP Per Min Per Game',
 }
