@@ -1,22 +1,21 @@
 // call api to get stats for games in tournaments
 // have tournament ids
+import axios from 'axios'
+import groupBy from 'lodash.groupby'
+
 import {
   STATS_FETCH_START, STATS_FETCH_ERROR, STATS_FETCH_END, stats
 } from '../constants'
-
-import axios from 'axios'
-import groupBy from 'lodash.groupby'
 
 import {
   sortPlayersIntoArray, addPlayerStats, orderStatsAdded
 } from './helpers'
 
-let url = 'http://localhost:3005/games/gamesbytournaments/'
+const url = 'http://localhost:3005/games/gamesbytournaments/'
 
 export const getMatchesFromTournaments = () => async (dispatch, getState) => {
   /**
     Get tournament ids from state because updating via checkboxes aint working
-
   */
   const idzs = getState().tournaments.checkedTournaments
   const idsEntries = Object.entries(idzs)
@@ -35,7 +34,6 @@ export const getMatchesFromTournaments = () => async (dispatch, getState) => {
   const games = await axios.post(url, idArr).catch(e => {
     dispatch({ type: STATS_FETCH_ERROR })
   })
-
 /*
    v - where the magic happens
    aka where we take the api data and turn it into displayable data

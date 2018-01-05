@@ -9,8 +9,8 @@ const initState = {
   filterOption: 'pg'
 }
 
-export default function(state = initState, action) {
-  switch(action.type) {
+export default function (state = initState, action) {
+  switch (action.type) {
     case STATS_FETCH_START:
       return {
         ...state,
@@ -22,7 +22,7 @@ export default function(state = initState, action) {
         loading: false,
         loadingError: true
       }
-    case STATS_FETCH_END:
+    case STATS_FETCH_END: {
       const { data } = action
       return {
         ...state,
@@ -30,6 +30,7 @@ export default function(state = initState, action) {
         loadingError: false,
         data
       }
+    }
     case STATS_FILTER_CHANGE:
       return {
         ...state,
@@ -38,5 +39,4 @@ export default function(state = initState, action) {
     default:
       return state
   }
-  return state
 }

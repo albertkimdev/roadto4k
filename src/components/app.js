@@ -8,7 +8,7 @@ import StatisticsPage from './StatisticsPage'
 import HomePage from './HomePage'
 
 const FourOhFour = () => (
-  <div>nuh find</div>
+  <div>Webpage not found</div>
 )
 
 const App = () => (

@@ -27,7 +27,7 @@ class HomePage extends Component {
           </form>
         </div>
 
-        <h2>PS I created a Twitter list featuring 100+ Dota 2 players, personalities, and teams! Feel free to subscribe and add more Dota 2 people!</h2>
+        <h2>P.S. I created a Twitter list featuring 100+ Dota 2 players, personalities, and teams! Feel free to subscribe and add more Dota 2 people!</h2>
         <p><a href="https://twitter.com/BERTWEAZE/lists/dota" target="_blank">https://twitter.com/BERTWEAZE/lists/dota</a></p>
 
       </Container>

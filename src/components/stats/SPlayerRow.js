@@ -7,15 +7,18 @@ const Cont = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 0.5px solid black;
+  align-items: center;
   font-size: 1.2em;
+  background-color: ${props => props.darker ? '#E8E8E8': null};
   p {
     margin: 5px;
     padding: 3px;
+    font-family: 'Cormorant Garamond', serif;
   }
 `
 const PValue = styled.p`
   text-align: left;
+  font-size: 1.2em;
 `
 
 class SPlayerRow extends Component {
@@ -30,6 +33,22 @@ class SPlayerRow extends Component {
   }
   render() {
     const { i, r, name } = this.props
+
+    if (i % 2 === 0) {
+      return (
+        <Cont
+        darker
+          className={`animated ${this.state.pulse ? 'pulse' : null}`}
+          onMouseEnter={this.toggleClass.bind(this, true)}
+          onMouseLeave={this.toggleClass.bind(this, false)}
+        >
+          <p><b>{`${i + 1}. ${r.player.name}`}</b></p>
+          <PValue>
+            <b>{numeral(r[name]).format('0,000,000,000.0')}</b>
+          </PValue> {/* r[name] is like r.assists or r.deaths name is variable */}
+        </Cont>
+      )
+    }
     return (
       <Cont
         className={`animated ${this.state.pulse ? 'pulse' : null}`}
@@ -37,7 +56,9 @@ class SPlayerRow extends Component {
         onMouseLeave={this.toggleClass.bind(this, false)}
       >
         <p>{`${i + 1}. ${r.player.name}`}</p>
-        <PValue>{numeral(r[name]).format('0,000,000,000.0')}</PValue> {/* r[name] is like r.assists or r.deaths name is variable */}
+        <PValue>
+          {numeral(r[name]).format('0,000,000,000.0')}
+        </PValue> {/* r[name] is like r.assists or r.deaths name is variable */}
       </Cont>
     )
   }
