@@ -1,9 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  height: 100px;
+  width: 100%;
+  background-color: #242124;
+`
 
 const Footer = () => (
-  <div>
-    footer
-  </div>
+  <Container>
+  </Container>
 )
 
 export default Footer

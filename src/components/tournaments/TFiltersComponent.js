@@ -30,7 +30,9 @@ class TFiltersComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selected: 'pg'
+      selected: 'pg',
+      pg: false,
+      total: false
     }
   }
 
@@ -41,18 +43,32 @@ class TFiltersComponent extends Component {
     this.props.selectStatsFilter(e.target.value)
   }
 
+  toggleClass(option, on) {
+    this.setState({
+      [option]: on
+    })
+  }
+
   printFilterOptions() {
     return (
       <form>
         <RadioGroup>
-          <div>
+          <div
+            className={`animated ${this.state.pg ? 'pulse' : null}`}
+            onMouseEnter={this.toggleClass.bind(this, 'pg', true)}
+            onMouseLeave={this.toggleClass.bind(this, 'pg', false)}
+          >
             <input type="radio" id="pg" name="filter" value='pg'
               checked={this.state.selected === 'pg'}
               onChange={this.handleOptionChange.bind(this)}
             />
             <label htmlFor="pg"> Per Game</label>
           </div>
-          <div>
+          <div
+            className={`animated ${this.state.total ? 'pulse' : null}`}
+            onMouseEnter={this.toggleClass.bind(this, 'total', true)}
+            onMouseLeave={this.toggleClass.bind(this, 'total', false)}
+          >
             <input type="radio" id="total" name="filter" value='total'
               checked={this.state.selected === 'total'}
               onChange={this.handleOptionChange.bind(this)}

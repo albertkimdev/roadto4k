@@ -5,6 +5,7 @@ import 'animate.css'
 import Header from './header'
 import Footer from './footer'
 import StatisticsPage from './StatisticsPage'
+import HomePage from './HomePage'
 
 const FourOhFour = () => (
   <div>nuh find</div>
@@ -16,6 +17,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={StatisticsPage} />
+        <Route exact path="/home" component={HomePage} />
         <Route component={FourOhFour} />
       </Switch>
       <Footer />
