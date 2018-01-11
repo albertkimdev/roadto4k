@@ -5,7 +5,7 @@ import {
   STATS_FILTER_CHANGE
 } from '../constants'
 
-const url = 'https://localhost:3005/tournaments/all'
+const url = 'https://roadto4k.com/api/tournaments/all'
 
 export const getTournamentsList = () => async (dispatch) => {
   dispatch({ type: TOURNAMENT_FETCH_START })
