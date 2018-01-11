@@ -1,4 +1,3 @@
-require('react-hot-loader/patch');
 const path = require('path');
 const webpack = require('webpack');
 require("babel-core/register");
@@ -13,16 +12,10 @@ module.exports = {
     'webpack/hot/only-dev-server',
     './src/index.js'
   ],
-  devtool: 'cheap-eval-source-map',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/dist/'
-  },
-  devServer: {
-    hot: true,
-    publicPath: '/dist/',
-    historyApiFallback: true
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json']
@@ -32,7 +25,7 @@ module.exports = {
     reasons: true,
     chunks: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
+  plugins: [new webpack.NamedModulesPlugin()],
   module: {
     rules: [
       {

@@ -11,7 +11,7 @@ import {
   sortPlayersIntoArray, addPlayerStats, orderStatsAdded
 } from './helpers'
 
-const url = 'http://localhost:3005/games/gamesbytournaments/'
+const url = 'https://localhost:3005/games/gamesbytournaments/'
 
 export const getMatchesFromTournaments = () => async (dispatch, getState) => {
   /**
