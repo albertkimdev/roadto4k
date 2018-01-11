@@ -5,13 +5,6 @@ require("babel-polyfill");
 
 module.exports = {
   context: __dirname,
-  entry: [
-    'react-hot-loader/patch',
-    'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/index.js'
-  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',

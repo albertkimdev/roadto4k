@@ -3,8 +3,13 @@ const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin")
 const common = require('./webpack.common.js');
+require("babel-polyfill");
 
 module.exports = merge(common, {
+  entry: [
+    'babel-polyfill',
+    './src/index.js'
+  ],
   devtool: 'source-map',
   plugins: [
     new UglifyJSPlugin({
