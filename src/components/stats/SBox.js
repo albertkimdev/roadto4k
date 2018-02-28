@@ -11,9 +11,14 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color:	#F5F5F5;
-  border: 1px solid black;
+  border: 1px solid rgba(0,0,0,0.1);
   margin: 10px;
   padding-bottom: 5px;
+
+  -webkit-box-shadow: 2px 10px 29px -5px rgba(0,0,0,0.39);
+  -moz-box-shadow: 2px 10px 29px -5px rgba(0,0,0,0.39);
+  box-shadow: 2px 10px 29px -5px rgba(0,0,0,0.39);
+
   @media (max-width:500px) {
     width: 90%;
   }

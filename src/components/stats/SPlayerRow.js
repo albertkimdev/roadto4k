@@ -43,6 +43,7 @@ class SPlayerRow extends Component {
           onMouseLeave={this.toggleClass.bind(this, false)}
         >
           <p><b>{`${i + 1}. ${r.player.name}`}</b></p>
+          <p>{`${r.totalGames} games`}</p>
           <PValue>
             <b>{numeral(r[name]).format('0,000,000,000.0')}</b>
           </PValue> {/* r[name] is like r.assists or r.deaths name is variable */}
@@ -56,6 +57,7 @@ class SPlayerRow extends Component {
         onMouseLeave={this.toggleClass.bind(this, false)}
       >
         <p>{`${i + 1}. ${r.player.name}`}</p>
+        <p>{`${r.totalGames} games`}</p>
         <PValue>
           {numeral(r[name]).format('0,000,000,000.0')}
         </PValue> {/* r[name] is like r.assists or r.deaths name is variable */}

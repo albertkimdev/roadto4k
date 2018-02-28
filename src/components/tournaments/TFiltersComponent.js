@@ -22,7 +22,10 @@ const RadioGroup = styled.div`
   div {
     background-color: Whitesmoke;
     padding: 5px;
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.1);
+    -webkit-box-shadow: 6px 6px 29px -5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 6px 6px 29px -5px rgba(0,0,0,0.3);
+    box-shadow: 6px 6px 29px -5px rgba(0,0,0,0.3);
   }
 `
 
